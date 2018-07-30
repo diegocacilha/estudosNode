@@ -5,19 +5,20 @@
 module.exports = function(app){
     app.get('/produtos', function(req, res){
         var conn = app.infra.connectionFactory();
-        conn.query('select * from livros', function(err, result){
+        var produtosBanco = app.infra.produtosLista;
+
+        produtosBanco.lista(conn, function(err, result){
             res.render('produtos/lista', {lista: result});
         });
-        //conn.end();
-        //res.send('olá mundo!');
-        ///lista Ã© o arquivo EJS (a extensÃ£o foi omitida, pois o mÃ³dulo EJS identifica a extensÃ£o)
-        //res.render('produtos/lista');
+        conn.end();
     });
     
     app.get('/produtos/:id', function(req, res){
-        conn.query('select * from livros where id='+req.params.id, function(err, result){
+        var conn = app.infra.connectionFactory();
+        conn.query('select * from produtos where id='+req.params.id, function(err, result){
             res.send(result);
         });
+        conn.end();
         
     });
 
