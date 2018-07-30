@@ -1,12 +1,10 @@
 /*
  * Arquivo de configuração das rotas do projeto
  */
- 
-var connection = require('../infra/dbConn');
 
 module.exports = function(app){
     app.get('/produtos', function(req, res){
-        var conn = connection();
+        var conn = app.infra.connectionFactory();
         conn.query('select * from livros', function(err, result){
             res.render('produtos/lista', {lista: result});
         });
@@ -21,5 +19,9 @@ module.exports = function(app){
             res.send(result);
         });
         
+    });
+
+    app.post('/produto', function(req, res){
+        console.log('POST');
     });
 };

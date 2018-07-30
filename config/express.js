@@ -1,5 +1,6 @@
 var port = 3000;
 var express = require('express');
+var load = require('express-load');
 var app = express();
 
 //set() seta as variáveis para o ambiente. EJS tem uma variável chamada view engine
@@ -13,6 +14,12 @@ app.listen(port, function(req, res){
     console.log('Servidor rodando na porta ' + port);
 });
 module.exports = function(){
+    //carrega as rotas automaticamente
+    //cwd é o ponto de onde o express-load começa a procurar as rotas
+	load('route', {cwd: 'app'})
+		.then('infra')
+		.into(app);
+
     return app;
 };
 
