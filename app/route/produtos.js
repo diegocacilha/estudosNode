@@ -1,18 +1,12 @@
 /*
  * Arquivo de configuração das rotas do projeto
  */
-var mysql = require('mysql');
-
-var conn = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'ispj4lqzx22',
-    database: 'alura'
-});
+ 
+var connection = require('../infra/dbConn');
 
 module.exports = function(app){
     app.get('/produtos', function(req, res){
-        
+        var conn = connection();
         conn.query('select * from livros', function(err, result){
             res.render('produtos/lista', {lista: result});
         });
