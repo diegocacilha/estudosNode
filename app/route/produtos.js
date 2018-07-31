@@ -1,16 +1,19 @@
 /*
  * Arquivo de configuração das rotas do projeto
  */
-
 module.exports = function(app){
     app.get('/produtos', function(req, res){
         var conn = app.infra.connectionFactory();
-        var produtosBanco = new app.infra.ProdutosDAO(conn);
+        var produtosDAO = new app.infra.ProdutosDAO(conn);
 
-        produtosBanco.lista(function(err, result){
+        produtosDAO.lista(function(err, result){
             res.render('produtos/lista', {lista: result});
         });
         conn.end();
+    });
+
+    app.get('/produtos/form', function(req, res){
+      res.render('produtos/form');
     });
 
     app.get('/produtos/:id', function(req, res){
@@ -22,7 +25,7 @@ module.exports = function(app){
 
     });
 
-    app.post('/produto', function(req, res){
+    app.post('/produtos/salva', function(req, res){
         console.log('POST');
     });
 };
