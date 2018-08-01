@@ -2,6 +2,10 @@ var port = 3000;
 var express = require('express');
 var load = require('express-load');
 var app = express();
+var bodyParser = require('body-parser');
+
+//insere um middleware
+app.use(bodyParser.urlencoded({extended: true}));
 
 //set() seta as variáveis para o ambiente. EJS tem uma variável chamada view engine
 //ejs é o nome da engine que foi instalada para o projeto.
@@ -22,4 +26,3 @@ module.exports = function(){
 
     return app;
 };
-
