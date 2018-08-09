@@ -8,8 +8,7 @@ module.exports = function(app){
 
       produtosDAO.lista(function(err, result){
         res.format({
-          html: function(a){// Accept: text/html
-            console.log(a);
+          html: function(){// Accept: text/html
             res.render('produtos/lista', {lista: result});
           },
           json: function(){// Accept: application/json
@@ -39,7 +38,18 @@ module.exports = function(app){
       var conn = app.infra.connectionFactory();
       var produtosDAO = new app.infra.ProdutosDAO(conn);
       produtosDAO.salva(produto, function(err, result){
-        res.redirect('/produtos');//redirect after post (redirecione após um post)
+        if(err){
+          console.log(err);
+          res.send(500);
+        }
+        res.format({
+          html: function(){
+              res.redirect('/produtos');//redirect after post (redirecione após um post)
+            },
+          json: function(){
+            res.send(201);
+          }
+        });
       });
     });
 };

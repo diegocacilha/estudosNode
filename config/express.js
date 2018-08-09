@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 
 //use() insere um middleware
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 //set() seta as variáveis para o ambiente. EJS tem uma variável chamada view engine
 //ejs é o nome da engine que foi instalada para o projeto.
