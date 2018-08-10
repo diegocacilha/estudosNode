@@ -3,10 +3,14 @@ var express = require('express');
 var load = require('express-load');
 var app = express();
 var bodyParser = require('body-parser');
+var expressValidator = require('express-validator');
 
 //use() insere um middleware
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
+//sempre será executado ao receber uma requisição
+app.use(bodyParser.json());//body-parser aceita o tipo JSON
+//valida os forms das requisições
+app.use(expressValidator());
 
 //set() seta as variáveis para o ambiente. EJS tem uma variável chamada view engine
 //ejs é o nome da engine que foi instalada para o projeto.
