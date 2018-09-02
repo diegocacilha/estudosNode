@@ -8,7 +8,7 @@ function createDBConnection(){
 	return conn = mysql.createConnection({
 	    host: 'localhost',
 	    user: 'root',
-	    password: 'root',
+	    password: 'ispj4lqzx22',
 	    database: 'alura'
 	});
 
