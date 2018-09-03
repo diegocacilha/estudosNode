@@ -5,6 +5,8 @@ var app = express();
 var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
 
+// console.log(process.env.NODE_ENV = 'production');
+
 //use() insere um middleware
 app.use(bodyParser.urlencoded({extended: true}));
 //sempre será executado ao receber uma requisição

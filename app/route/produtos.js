@@ -2,11 +2,15 @@
  * Arquivo de configuração das rotas do projeto
  */
 module.exports = function(app){
-    app.get('/produtos', function(req, res){
+    app.get('/produtos', function(req, res, next){
       var conn = app.infra.connectionFactory();
       var produtosDAO = new app.infra.ProdutosDAO(conn);
 
       produtosDAO.lista(function(err, result){
+        if(err){
+          return next(err);
+          console.log(err);
+        }
         res.format({
           html: function(){//Frontend solicita pelo Accept um text/html
             res.render('produtos/lista', {lista: result});
