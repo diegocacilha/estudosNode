@@ -8,10 +8,10 @@ module.exports = function(app){
 
       produtosDAO.lista(function(err, result){
         res.format({
-          html: function(){// Accept: text/html
+          html: function(){//Frontend solicita pelo Accept um text/html
             res.render('produtos/lista', {lista: result});
           },
-          json: function(){// Accept: application/json
+          json: function(){//fronent envia Accept: application/json
             res.json(result);
           }
         });

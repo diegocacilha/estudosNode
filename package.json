@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "Projeto desenvolvido durante o curso de MEAN da Alura",
   "main": "index.js",
-  "start": "index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "test": "node node_modules/mocha/bin/mocha"
   },
   "repository": {
     "type": "git",

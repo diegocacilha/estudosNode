@@ -1,5 +1,6 @@
 /*
-
+	Exporta a fn createConnection para o NodeJS.
+	 
 */
 var mysql = require('mysql');
 
