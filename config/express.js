@@ -21,6 +21,8 @@ app.set('view engine', 'ejs');
 //config da pasta onde ficarão as views
 app.set('views', './app/views');
 
+app.set('title', 'My Site');
+
 app.listen(port, function(req, res){
     console.log('Servidor rodando na porta ' + port);
 });

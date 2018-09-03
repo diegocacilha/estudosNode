@@ -13,7 +13,7 @@ module.exports = function(app){
         }
         res.format({
           html: function(){//Frontend solicita pelo Accept um text/html
-            res.render('produtos/lista', {lista: result});
+            res.render('produtos/lista', {lista: result, title: app.get('title')});
           },
           json: function(){//fronent envia Accept: application/json
             res.json(result);
