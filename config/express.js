@@ -5,7 +5,8 @@ var app = express();
 var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
 
-// console.log(process.env.NODE_ENV = 'production');
+//middleware que inclui o diretório com as bibliotecas do frontend
+app.use(express.static('./app/public/'));//add locais estáticos
 
 //use() insere um middleware
 app.use(bodyParser.urlencoded({extended: true}));

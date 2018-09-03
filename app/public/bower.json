@@ -1,0 +1,22 @@
+{
+  "name": "Front Alura",
+  "version": "0.0.0",
+  "homepage": "https://github.com/diegocacilha/alura",
+  "authors": [
+    "Diego Armando Cacilha <cacilha.tec@gmail.com>"
+  ],
+  "description": "Projeto desenvolvido durante o curso MEAN Stack",
+  "main": "index",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.7.3",
+    "bootstrap": "~4.1.3"
+  }
+}

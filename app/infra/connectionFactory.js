@@ -20,7 +20,7 @@ function createDBConnection(){
 			host: 'localhost',
 			user: 'root',
 			password: 'ispj4lqzx22',
-			database: 'alura'
+			database: 'alura-dev'
 		});
 	};
 }
