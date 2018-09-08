@@ -41,6 +41,7 @@ module.exports = function(app){
         Envia uma msg para quelquer dispositivo que esteja conectado no server
       */
       app.get('io').emit('novaPromocao', produto.titulo);
+
       //o express-validator add fn nas requisições
       var validador = req.assert('titulo', 'Titulo é obrigatório!');
       validador.notEmpty();//não pode ser vazio
