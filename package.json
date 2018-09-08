@@ -7,8 +7,8 @@
     "test": "test"
   },
   "engines": {
-    "node":"6.11.5"
-  }, 
+    "node": "6.11.5"
+  },
   "scripts": {
     "start": "node main.js",
     "test": "node node_modules/mocha/bin/mocha"
@@ -29,7 +29,8 @@
     "express": "^4.16.3",
     "express-load": "^1.1.16",
     "express-validator": "^5.3.0",
-    "mysql": "^2.16.0"
+    "mysql": "^2.16.0",
+    "socket.io": "^2.1.1"
   },
   "devDependencies": {
     "mocha": "^5.2.0",
