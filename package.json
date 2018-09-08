@@ -2,12 +2,12 @@
   "name": "curso",
   "version": "1.0.0",
   "description": "Projeto desenvolvido durante o curso de MEAN da Alura",
-  "main": "index.js",
+  "main": "main.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "node main.js",
     "test": "node node_modules/mocha/bin/mocha"
   },
   "repository": {
