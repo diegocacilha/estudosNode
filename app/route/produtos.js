@@ -37,10 +37,12 @@ module.exports = function(app){
 
     app.post('/produtos', function(req, res){
       var produto = req.body;
+      var conn = app.infra.connectionFactory();
+      var produtosDAO = new app.infra.ProdutosDAO(conn);
       /*
         Envia uma msg para quelquer dispositivo que esteja conectado no server
       */
-      app.get('io').emit('novaPromocao', produto.titulo);
+      //app.get('io').emit('novaPromocao', produto.titulo);
 
       //o express-validator add fn nas requisições
       var validador = req.assert('titulo', 'Titulo é obrigatório!');
@@ -51,8 +53,6 @@ module.exports = function(app){
         res.render('produtos/form', {errosValidacao: erros});
         return;
       }
-      var conn = app.infra.connectionFactory();
-      var produtosDAO = new app.infra.ProdutosDAO(conn);
       produtosDAO.salva(produto, function(err, result){
         if(err){
           console.log(err);

@@ -6,5 +6,5 @@ var port = process.env.PORT || 3000;
 app.set('io', sio);//set global
 
 http.listen(port, function(){
-  console.log("Servidor escutando na porta " + port);
+  console.log(`Servidor escutando na porta ${ port }`);
 });
