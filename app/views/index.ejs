@@ -8,4 +8,13 @@
     <body>
         <h1>Página Inicial</h1>
     </body>
+
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+      var sio = io();
+      sio.on('novaPromocao', function(data){
+        alert(data);
+        console.log(data);
+      });
+    </script>
 </html>

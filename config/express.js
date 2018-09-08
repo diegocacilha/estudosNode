@@ -24,9 +24,14 @@ app.set('views', './app/views');
 
 app.set('title', 'My Site');
 
-app.listen(port, function(req, res){
-    console.log('Servidor rodando na porta ' + port);
-});
+/*
+  Comentado por conta do Socket.io.
+  Por conta dele server iniciado pelo listen do http
+*/
+// app.listen(port, function(req, res){
+//     console.log('Servidor rodando na porta ' + port);
+// });
+
 module.exports = function(){
     //carrega as módulos automaticamente
     //cwd é o ponto de onde o express-load começa a procurar as rotas
@@ -34,5 +39,23 @@ module.exports = function(){
 		.then('infra')//correga os módulos relacionados ao DAO
 		.into(app);//declara a pasta onde o load() deve iniciar as buscas por módulos
 
+		/*
+			Redireciona o endpoint /<qualquerCoisa>
+		*/
+		app.use(function(req, res, next){
+			res.status(404).render('erros/404');
+			next();
+		});
+		/*
+			Redireciona o endpoint /<qualquerCoisa>/<qualquerCoisa>
+		*/
+		app.use(function(err, req, res, next){
+			//Somente enviroment production
+			if(process.env.NODE_ENV == 'production'){
+				res.status(500).render('erros/500');
+				return;
+			}
+			next(err);
+		});
     return app;
 };
