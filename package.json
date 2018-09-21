@@ -7,7 +7,7 @@
     "test": "test"
   },
   "engines": {
-    "node": "6.11.5"
+    "node": "^6.11.5"
   },
   "scripts": {
     "start": "node main.js",
